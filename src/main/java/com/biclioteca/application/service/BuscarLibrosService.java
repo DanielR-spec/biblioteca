@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.biclioteca.application.dto.BuscarLibrosQuery;
-import com.biclioteca.application.dto.ListadoLibrosResult;
 import com.biclioteca.application.usecase.IBuscarLibrosUseCase;
 import com.biclioteca.domain.model.Libro;
 import com.biclioteca.domain.repository.LibroRepository;

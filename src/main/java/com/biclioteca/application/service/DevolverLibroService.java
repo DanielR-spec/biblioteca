@@ -4,12 +4,10 @@ import java.time.LocalDate;
 
 import org.springframework.stereotype.Service;
 
-import com.biclioteca.application.dto.DevolucionResult;
 import com.biclioteca.application.dto.DevolverLibroCommand;
 import com.biclioteca.application.dto.PrestamoResult;
 import com.biclioteca.application.usecase.IDevolverLibroUseCase;
 import com.biclioteca.domain.exception.LibroNoEncontradoException;
-import com.biclioteca.domain.model.Libro;
 import com.biclioteca.domain.model.Prestamo;
 import com.biclioteca.domain.repository.LibroRepository;
 import com.biclioteca.domain.repository.PrestamoRepository;
