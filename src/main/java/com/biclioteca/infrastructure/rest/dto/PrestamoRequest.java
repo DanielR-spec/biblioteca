@@ -1,5 +1,8 @@
 package com.biclioteca.infrastructure.rest.dto;
 
-public class PrestamoRequest {
-    
-}
+import jakarta.validation.constraints.NotNull;
+
+public record PrestamoRequest(
+        @NotNull Long libroId,
+        @NotNull Long usuarioId
+) { }

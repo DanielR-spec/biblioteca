@@ -1,5 +1,11 @@
 package com.biclioteca.infrastructure.rest.dto;
 
-public class PrestamoResponse {
-    
-}
+import java.time.LocalDate;
+
+public record PrestamoResponse(
+        Long prestamoId,
+        Long libroId,
+        Long usuarioId,
+        LocalDate fechaPrestamo,
+        LocalDate fechaDevolucion
+) { }

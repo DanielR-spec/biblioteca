@@ -1,4 +1,3 @@
 package com.biclioteca.application.dto;
 
-public record BuscarLibrosQuery() {
-}
+public record BuscarLibrosQuery(String texto) { }

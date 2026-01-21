@@ -1,4 +1,5 @@
 package com.biclioteca.application.dto;
 
-public record PrestarLibroCommand() {
-}
+import java.time.LocalDate;
+
+public record PrestarLibroCommand(Long libroId, Long usuarioId, LocalDate fechaPrestamo) { }

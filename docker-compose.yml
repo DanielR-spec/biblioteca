@@ -1,0 +1,12 @@
+services:
+  biblioteca:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    volumes:
+      - biblioteca_data:/data
+
+volumes:
+  biblioteca_data:
