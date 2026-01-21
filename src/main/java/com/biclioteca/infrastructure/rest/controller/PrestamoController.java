@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.biclioteca.application.dto.DevolverLibroCommand;
 import com.biclioteca.application.dto.PrestarLibroCommand;
-import com.biclioteca.application.usecase.DevolverLibroUseCaseImpl;
-import com.biclioteca.application.usecase.PrestarLibroUseCaseImpl;
+import com.biclioteca.application.service.DevolverLibroService;
+import com.biclioteca.application.service.PrestarLibroService;
 import com.biclioteca.infrastructure.rest.dto.PrestamoRequest;
 import com.biclioteca.infrastructure.rest.dto.PrestamoResponse;
 
@@ -21,11 +21,11 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/prestamos")
 public class PrestamoController {
 
-    private final PrestarLibroUseCaseImpl prestarLibroUseCase;
-    private final DevolverLibroUseCaseImpl devolverLibroUseCase;
+    private final PrestarLibroService prestarLibroUseCase;
+    private final DevolverLibroService devolverLibroUseCase;
 
-    public PrestamoController(PrestarLibroUseCaseImpl prestarLibroUseCase,
-                              DevolverLibroUseCaseImpl devolverLibroUseCase) {
+    public PrestamoController(PrestarLibroService prestarLibroUseCase,
+                              DevolverLibroService devolverLibroUseCase) {
         this.prestarLibroUseCase = prestarLibroUseCase;
         this.devolverLibroUseCase = devolverLibroUseCase;
     }

@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biclioteca.application.dto.BuscarLibrosQuery;
-import com.biclioteca.application.dto.ListadoLibrosResult;
-import com.biclioteca.application.usecase.BuscarLibrosUseCaseImpl;
+import com.biclioteca.application.service.BuscarLibrosService;
 import com.biclioteca.domain.exception.LibroNoEncontradoException;
 import com.biclioteca.domain.model.Libro;
 import com.biclioteca.domain.model.valueobjects.ISBN;
@@ -29,9 +28,9 @@ import jakarta.validation.Valid;
 public class LibroController {
 
     private final LibroRepository libroRepository;
-    private final BuscarLibrosUseCaseImpl buscarLibrosUseCase;
+    private final BuscarLibrosService buscarLibrosUseCase;
 
-    public LibroController(LibroRepository libroRepository, BuscarLibrosUseCaseImpl buscarLibrosUseCase) {
+    public LibroController(LibroRepository libroRepository, BuscarLibrosService buscarLibrosUseCase) {
         this.libroRepository = libroRepository;
         this.buscarLibrosUseCase = buscarLibrosUseCase;
     }
@@ -49,7 +48,7 @@ public class LibroController {
     }
 
     @GetMapping
-    public ListadoLibrosResult buscar(@RequestParam(required = false) String q) {
+    public List<Libro> buscar(@RequestParam(required = false) String q) {
         return buscarLibrosUseCase.ejecutar(new BuscarLibrosQuery(q));
     }
 
