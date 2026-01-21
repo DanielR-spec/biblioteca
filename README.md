@@ -41,65 +41,68 @@ La arquitectura separa responsabilidades y mantiene dependencias apuntando hacia
 ---
 
 ## 3) Estructura de paquetes
-src/main/java/com/biblioteca/
-├── domain/
-│ ├── model/
-│ │ ├── Libro.java
-│ │ ├── Usuario.java
-│ │ ├── Prestamo.java
-│ │ └── valueobjects/
-│ │ └── ISBN.java
-│ ├── repository/
-│ │ ├── LibroRepository.java
-│ │ ├── UsuarioRepository.java
-│ │ └── PrestamoRepository.java
-│ └── exception/
-│ ├── LibroNoEncontradoException.java
-│ └── LibroNoDisponibleException.java
-├── application/
-│ ├── usecase/
-│ │ ├── PrestarLibroUseCase.java
-│ │ ├── DevolverLibroUseCase.java
-│ │ └── BuscarLibrosUseCase.java
-│ ├── dto/
-│ │ ├── PrestarLibroCommand.java
-│ │ ├── DevolverLibroCommand.java
-│ │ ├── BuscarLibrosQuery.java
-│ │ ├── PrestamoResult.java
-│ │ ├── DevolucionResult.java
-│ │ └── ListadoLibrosResult.java
-│ └── service/
-│ ├── PrestarLibroService.java
-│ ├── DevolverLibroService.java
-│ └── BuscarLibrosService.java
-└── infrastructure/
-├── persistence/
-│ ├── entity/
-│ │ ├── LibroEntity.java
-│ │ ├── UsuarioEntity.java
-│ │ └── PrestamoEntity.java
-│ ├── jpa/
-│ │ ├── SpringDataLibroRepository.java
-│ │ ├── SpringDataUsuarioRepository.java
-│ │ └── SpringDataPrestamoRepository.java
-│ └── adapter/
-│ ├── LibroJpaRepository.java
-│ ├── UsuarioJpaRepository.java
-│ └── PrestamoJpaRepository.java
-└── rest/
-├── controller/
-│ ├── LibroController.java
-│ ├── PrestamoController.java
-│ └── UsuarioController.java
-├── dto/
-│ ├── LibroRequest.java
-│ ├── PrestamoRequest.java
-│ └── PrestamoResponse.java
-└── exception/
-└── GlobalExceptionHandler.java
+src/main/java/com/biblioteca
+├── domain
+│   ├── model
+│   │   ├── Libro.java
+│   │   ├── Usuario.java
+│   │   ├── Prestamo.java
+│   │   └── valueobjects
+│   │       └── ISBN.java
+│   ├── repository
+│   │   ├── LibroRepository.java
+│   │   ├── UsuarioRepository.java
+│   │   └── PrestamoRepository.java
+│   └── exception
+│       ├── LibroNoEncontradoException.java
+│       └── LibroNoDisponibleException.java
+│
+├── application
+│   ├── usecase
+│   │   ├── PrestarLibroUseCase.java
+│   │   ├── DevolverLibroUseCase.java
+│   │   └── BuscarLibrosUseCase.java
+│   ├── dto
+│   │   ├── PrestarLibroCommand.java
+│   │   ├── DevolverLibroCommand.java
+│   │   ├── BuscarLibrosQuery.java
+│   │   ├── PrestamoResult.java
+│   │   ├── DevolucionResult.java
+│   │   └── ListadoLibrosResult.java
+│   └── service
+│       ├── PrestarLibroService.java
+│       ├── DevolverLibroService.java
+│       └── BuscarLibrosService.java
+│
+├── infrastructure
+│   ├── persistence
+│   │   ├── entity
+│   │   │   ├── LibroEntity.java
+│   │   │   ├── UsuarioEntity.java
+│   │   │   └── PrestamoEntity.java
+│   │   ├── jpa
+│   │   │   ├── SpringDataLibroRepository.java
+│   │   │   ├── SpringDataUsuarioRepository.java
+│   │   │   └── SpringDataPrestamoRepository.java
+│   │   └── adapter
+│   │       ├── LibroJpaRepository.java
+│   │       ├── UsuarioJpaRepository.java
+│   │       └── PrestamoJpaRepository.java
+│   └── rest
+│       ├── controller
+│       │   ├── LibroController.java
+│       │   ├── PrestamoController.java
+│       │   └── UsuarioController.java
+│       ├── dto
+│       │   ├── LibroRequest.java
+│       │   ├── PrestamoRequest.java
+│       │   └── PrestamoResponse.java
+│       └── exception
+│           └── GlobalExceptionHandler.java
+
 
 ## 4) Requisitos previos
-- Java 17 instalado
+- Java 21 instalado
 - Maven 3.9+ instalado
 
 Verificar:
@@ -159,27 +162,7 @@ API: http://localhost:8080
 
 Swagger: http://localhost:8080/swagger-ui.html
 
-13) Decisiones de diseño (resumen)
 
-Casos de uso orquestan transacciones: @Transactional en servicios de aplicación.
-
-Dominio no depende de frameworks.
-
-Infraestructura implementa puertos (repositorios) mediante adapters JPA.
-
-Validación en DTOs de entrada (REST) y constraints en entidades JPA.
-
-Excepciones de dominio para reglas de negocio y handler global para traducir a HTTP.
-
-14) Roadmap / mejoras (si hubiera más tiempo)
-
-DTOs completos para Usuario (en vez de aceptar dominio directo en controller)
-
-Versionado optimista para concurrencia (campo @Version en LibroEntity)
-
-Outbox pattern para eventos de dominio
-
-Testcontainers para BD real (PostgreSQL) en integración
 
 ## Diagrama de Arquitectura Hexagonal (ASCII)
 
