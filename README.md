@@ -41,6 +41,7 @@ La arquitectura separa responsabilidades y mantiene dependencias apuntando hacia
 ---
 
 ## 3) Estructura de paquetes
+```txt
 src/main/java/com/biblioteca
 ├── domain
 │   ├── model
